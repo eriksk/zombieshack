@@ -11,6 +11,8 @@ public class Thunder : MonoBehaviour
 	public Vector2 FlashDuration;
 	public Vector2 WaitInterval;
 	public AnimationCurve IntensityRange;
+	public AnimationCurve ShadowIntensityRange;
+	public AnimationCurve SaturationIntensityRange;
 
 	private float _current, _interval;
 
@@ -32,7 +34,7 @@ public class Thunder : MonoBehaviour
     private IEnumerator Flash()
     {
 		if(ColorCorrectionCurves != null)
-			ColorCorrectionCurves.saturation = 0.2f;
+			ColorCorrectionCurves.saturation = SaturationIntensityRange.Evaluate(0f);
 		FlashLight.enabled = true;
 
 		var duration = UnityEngine.Random.Range(FlashDuration.x, FlashDuration.y);
@@ -44,13 +46,14 @@ public class Thunder : MonoBehaviour
 			current += Time.deltaTime;
 			var progress = current / duration;
 			FlashLight.intensity = IntensityRange.Evaluate(progress);
+			FlashLight.shadowStrength = Mathf.Clamp01(ShadowIntensityRange.Evaluate(progress));
 			if(ColorCorrectionCurves != null)
-				ColorCorrectionCurves.saturation = Mathf.Lerp(0.2f, 1.34f, progress);
+				ColorCorrectionCurves.saturation = SaturationIntensityRange.Evaluate(progress);
 		}
 
 		FlashLight.enabled = false;
 		if(ColorCorrectionCurves != null)
-			ColorCorrectionCurves.saturation = 1.34f;
+			ColorCorrectionCurves.saturation = SaturationIntensityRange.Evaluate(1f);
     }
 
     private void Reset()
