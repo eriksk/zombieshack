@@ -48,7 +48,9 @@ public class RagdollController : MonoBehaviour
 				rigidBody.velocity = Vector3.zero;
 				rigidBody.angularVelocity = Vector3.zero;
 				// Bump it up a bit
-				rigidBody.AddForceAtPosition(velocity * UnityEngine.Random.Range(0.1f, 0.8f), position, ForceMode.Impulse);
+				var force = velocity * UnityEngine.Random.Range(0.5f, 0.8f);
+				force += Vector3.up * UnityEngine.Random.Range(3f, 10f); // add some up force
+				rigidBody.AddForceAtPosition(force, position + (Vector3.down * 0.5f), ForceMode.Impulse);
 			}
 		}
 	}

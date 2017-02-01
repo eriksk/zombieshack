@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
 	public float Spread = 0f;
 	[Range(0.1f, 3f)]
 	public float ReloadTime = 0.5f;
+	public int BulletFireCount = 8;
 	public GameObject MuzzleFlashPrefab;
 
 	private float _currentReload = 0f;
@@ -70,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
     private void Fire()
     {
-		for (int i = 0; i < 8; i++)
+		for (int i = 0; i < BulletFireCount; i++)
 		{
 			var rotationOffset = new Vector3(
 				UnityEngine.Random.Range(-Spread, Spread),

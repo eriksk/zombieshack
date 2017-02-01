@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ZombieSpawner : MonoBehaviour
 {
-	public GameObject ZombiePrefab;
+	public List<GameObject> ZombiePrefabs;
 
 	public Vector2 Interval;
 
@@ -28,7 +28,7 @@ public class ZombieSpawner : MonoBehaviour
 		_current += Time.deltaTime;
 		if(_current >= _currentInterval)
 		{
-			Instantiate(ZombiePrefab, transform.position, transform.rotation);
+			Instantiate(ZombiePrefabs[UnityEngine.Random.Range(0, ZombiePrefabs.Count)], transform.position, transform.rotation);
 			Reset();
 		}
 	}

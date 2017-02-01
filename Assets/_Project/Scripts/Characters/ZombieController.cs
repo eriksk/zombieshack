@@ -37,7 +37,7 @@ public class ZombieController : MonoBehaviour
 		// Enable ragdoll, disable this controller and destroy object after some time
 		GetComponent<RagdollController>().EnableRagdoll(position, velocity);
 		this.enabled = false;
-		Destroy(gameObject, 6f);
+		// Destroy(gameObject, 6f);
 	}
 	
 	void Update () 

@@ -18,8 +18,8 @@ TagManager:
   - Terrain
   - Bullets
   - Ragdoll
-  - 
-  - 
+  - Penetrable
+  - Blockade
   - 
   - 
   - 
