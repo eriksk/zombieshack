@@ -13,8 +13,13 @@ public class Health : MonoBehaviour
 	public event Death OnDeath;
 	public event Damaged OnDamaged;
 
-	public bool Alive { get { return _health <= 0; } }
+	public bool Alive { get { return _health > 0; } }
 	public bool Dead { get { return !Alive; } }
+
+	void Start()
+	{
+		_health = Initial;
+	}
 
 	public void Deal(int damage, Vector3 position, Vector3 velocity)
 	{

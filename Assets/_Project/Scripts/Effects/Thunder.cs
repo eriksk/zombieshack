@@ -15,9 +15,11 @@ public class Thunder : MonoBehaviour
 	public AnimationCurve SaturationIntensityRange;
 
 	private float _current, _interval;
+	private AudioSource _audioSource;
 
 	void Start()
 	{
+		_audioSource = GetComponent<AudioSource>();
 		Reset();
 	}
 
@@ -36,6 +38,9 @@ public class Thunder : MonoBehaviour
 		if(ColorCorrectionCurves != null)
 			ColorCorrectionCurves.saturation = SaturationIntensityRange.Evaluate(0f);
 		FlashLight.enabled = true;
+
+		_audioSource.pitch = UnityEngine.Random.Range(0.8f, 1.2f);
+		_audioSource.Play();
 
 		var duration = UnityEngine.Random.Range(FlashDuration.x, FlashDuration.y);
 		var current = 0f;

@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
 	private float _currentReload = 0f;
 	private Rigidbody _rigidBody;
 	private PlayerIKController _ik;
+	private AudioSource _audioSource;
 	
 	void Start()
 	{
@@ -27,6 +28,7 @@ public class PlayerController : MonoBehaviour
 		_currentReload = float.MaxValue;
 		_rigidBody = GetComponent<Rigidbody>();
 		_ik = GetComponent<PlayerIKController>();
+		_audioSource = GetComponent<AudioSource>();
 	}
 
 	void Update () 
@@ -45,6 +47,7 @@ public class PlayerController : MonoBehaviour
 		if(Input.GetAxis("RightTrigger") > 0.3f && _currentReload >= ReloadTime)
 		{
 			Fire();
+			_audioSource.Play();
 			_currentReload = 0f;
 		}
 
