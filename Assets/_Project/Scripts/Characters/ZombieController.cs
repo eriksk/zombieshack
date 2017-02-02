@@ -15,6 +15,8 @@ public class ZombieController : MonoBehaviour
 	private Animator _animator;
 	private float _speed;
 
+	private int _attackType = 0;
+
 	void Start () 
 	{
 		_speed = Random.Range(Speed.x, Speed.y);
@@ -53,7 +55,21 @@ public class ZombieController : MonoBehaviour
 
 		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.LookRotation(directionToPlayer, Vector3.up), RotationSpeed);
 
-		_animator.SetBool("moving", true);
-		_animator.SetFloat("move_speed", _speed);
+		var distanceToPlayer = Vector3.Distance(_target.transform.position, transform.position);
+
+		if(distanceToPlayer < 0.5f)
+		{
+			_animator.SetBool(_attackType == 0 ? "attacking" : "biting", true);
+			_animator.SetBool("moving", false);
+			_animator.SetFloat("move_speed", _speed);
+		}
+		else
+		{
+			_attackType = UnityEngine.Random.Range(0, 2);
+			_animator.SetBool("attacking", false);
+			_animator.SetBool("biting", false);
+			_animator.SetBool("moving", true);
+			_animator.SetFloat("move_speed", _speed);
+		}
 	}
 }
