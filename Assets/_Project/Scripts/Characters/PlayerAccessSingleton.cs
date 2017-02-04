@@ -8,6 +8,11 @@ public class PlayerAccessSingleton
 	
 	public static GameObject Player
 	{
-		get { return _player ?? (_player = GameObject.Find("Player")); }
+		get 
+		{
+			if(_player == null)
+				_player = GameObject.Find("Player");
+			return _player; 
+		}
 	}
 }

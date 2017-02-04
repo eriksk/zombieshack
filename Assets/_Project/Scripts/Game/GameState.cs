@@ -16,6 +16,10 @@ public class GameState : MonoBehaviour
 
     void Start () 
 	{
+		if(Instance != null)
+		{
+			Destroy(Instance);
+		}
 		Instance = this;
 		Reset();
 	}

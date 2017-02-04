@@ -126,7 +126,7 @@ public class Waypoints
 	{
 		get
 		{
-			if(_waypoints != null) return _waypoints;
+			if(_waypoints != null && _waypoints.All(x => x != null)) return _waypoints;
 			return (_waypoints = GetWaypoints().ToArray());
 		}
 	}

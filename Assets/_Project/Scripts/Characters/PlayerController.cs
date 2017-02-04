@@ -30,9 +30,22 @@ public class PlayerController : MonoBehaviour
 		_rigidBody = GetComponent<Rigidbody>();
 		_ik = GetComponent<PlayerIKController>();
 		_audioSource = GetComponent<AudioSource>();
+		var health = GetComponent<Health>();
+		health.OnDeath += OnDeath;
 	}
 
-	void Update () 
+    private void OnDeath(Vector3 position, Vector3 velocity)
+    {
+		Destroy(_rigidBody);
+		Destroy(GetComponent<Collider>());
+		Animator.SetBool("alive", false);
+		Animator.SetBool("moving", false);
+		Animator.SetFloat("forward", 0f);
+		Animator.SetFloat("side", 0f);
+		Destroy(this);
+    }
+
+    void Update () 
 	{
 		if(Animator == null) return;
 
@@ -114,4 +127,12 @@ public class PlayerController : MonoBehaviour
 		Animator.SetFloat("side", m.z);
 
     }
+
+	void OnCollisionEnter(Collision collision)
+	{
+		var zombie = collision.gameObject.GetComponent<ZombieController>();
+		if(zombie == null) return;
+		
+		GetComponent<Health>().Deal(1, transform.position, Vector3.zero);
+	}
 }

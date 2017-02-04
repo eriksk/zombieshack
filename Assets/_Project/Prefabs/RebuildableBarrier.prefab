@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 65340054657656580}
   - component: {fileID: 114657708200961964}
   - component: {fileID: 114774338117614672}
+  - component: {fileID: 82485291248265290}
   m_Layer: 15
   m_Name: RebuildableBarrier
   m_TagString: Untagged
@@ -277,6 +278,86 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.26, y: 1.3, z: 4.63}
   m_Center: {x: 0, y: 0.64, z: 0}
+--- !u!82 &82485291248265290
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1820973183039258}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 30
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!95 &95085015177804090
 Animator:
   serializedVersion: 3
@@ -343,6 +424,10 @@ MonoBehaviour:
   TeardownDistance: 2
   TearDownDuration: 1
   ExclamationMark: {fileID: 4324590925250668}
+  DamagedClips:
+  - {fileID: 8300000, guid: 22e5a7c694db0e9419260b8ce1293288, type: 3}
+  - {fileID: 8300000, guid: 3eb65ec17450dd445b9f86e62ad13ad7, type: 3}
+  TearDownClip: {fileID: 8300000, guid: ad8afe5aadeed0d44903734aa59a7e2a, type: 3}
   _state: 0
 --- !u!114 &114968337236104886
 MonoBehaviour:

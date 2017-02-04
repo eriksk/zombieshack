@@ -14,15 +14,20 @@ public class RebuildableBarrier : MonoBehaviour
 
 	public Transform ExclamationMark;
 
+	public AudioClip[] DamagedClips;
+	public AudioClip TearDownClip;
+
 	private float _currentTeardown;
 	private Vector3 _startPosition;
 	private Health _health;
+	private AudioSource _audio;
 
 	public BarrierState _state = BarrierState.Up;
 
 	void Start () 
 	{
 		ExclamationMark.gameObject.SetActive(false);
+		_audio = GetComponent<AudioSource>();
 		_state = BarrierState.Up;
 		_startPosition = transform.position;
 		_health = GetComponent<Health>();
@@ -32,6 +37,7 @@ public class RebuildableBarrier : MonoBehaviour
 
 	private void TearDown()
 	{
+		_audio.PlayOneShot(TearDownClip);
 		ExclamationMark.gameObject.SetActive(true);
 		_state = BarrierState.GoingUpOrDown;
 		StartCoroutine(Move(true));
@@ -75,6 +81,7 @@ public class RebuildableBarrier : MonoBehaviour
 
     private void OnDamaged(int damage, Vector3 position, Vector3 velocity)
     {
+		_audio.PlayOneShot(DamagedClips[UnityEngine.Random.Range(0, DamagedClips.Length)]);
 		if(DamagedEffectPrefab != null)
 			Instantiate(DamagedEffectPrefab, transform.position, transform.rotation);
     }
