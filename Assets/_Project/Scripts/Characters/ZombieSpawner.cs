@@ -8,6 +8,7 @@ public class ZombieSpawner : MonoBehaviour
 	public List<GameObject> ZombiePrefabs;
 
 	public Vector2 Interval;
+	public Transform Container;
 
 	private float _currentInterval;
 	private float _current;
@@ -28,7 +29,10 @@ public class ZombieSpawner : MonoBehaviour
 		_current += Time.deltaTime;
 		if(_current >= _currentInterval)
 		{
-			Instantiate(ZombiePrefabs[UnityEngine.Random.Range(0, ZombiePrefabs.Count)], transform.position, transform.rotation);
+			var zombie = (GameObject)Instantiate(ZombiePrefabs[UnityEngine.Random.Range(0, ZombiePrefabs.Count)], transform.position, transform.rotation);
+			if(Container != null)
+				zombie.transform.parent = Container;
+
 			Reset();
 		}
 	}

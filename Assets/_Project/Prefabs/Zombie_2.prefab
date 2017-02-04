@@ -1204,10 +1204,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb0dc9cb53075164cbe3bba4dadb42d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: {x: 2, y: 8}
+  Speed: {x: 2, y: 10}
   RotationSpeed: 0.293
   BloodPrefab: {fileID: 1410073860476536, guid: 4adc22d71d301fc4fada6adda4c72470,
     type: 2}
+  _state: 0
 --- !u!114 &114904005062104094
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1229,7 +1230,7 @@ MonoBehaviour:
   Death: {fileID: 8300000, guid: 7dfc109bbbd0b0b488982ab36e171dbb, type: 3}
   Attack: {fileID: 8300000, guid: e7ba6b250bd7e3649acf048e61808fee, type: 3}
   Splatter: {fileID: 8300000, guid: 79aa2d7eb41de7548bd56a4fbe3d5196, type: 3}
-  GruntInterval: {x: 2, y: 7}
+  GruntInterval: {x: 6, y: 14}
 --- !u!135 &135197232607440272
 SphereCollider:
   m_ObjectHideFlags: 1

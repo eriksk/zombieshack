@@ -16,8 +16,6 @@ public class ZombieAudio : MonoBehaviour
 	private AudioSource _source;
 	private float _wait;
 
-	// TODO: add släpande ljud när dom går omkring Animator.GetBool("moving")
-
 	void Start () 
 	{
 		_source = GetComponent<AudioSource>();

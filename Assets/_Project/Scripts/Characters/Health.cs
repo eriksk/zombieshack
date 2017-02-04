@@ -18,8 +18,13 @@ public class Health : MonoBehaviour
 
 	void Start()
 	{
-		_health = Initial;
+		Reset();
 	}
+
+    public void Reset()
+    {
+		_health = Initial;
+    }
 
 	public void Deal(int damage, Vector3 position, Vector3 velocity)
 	{
