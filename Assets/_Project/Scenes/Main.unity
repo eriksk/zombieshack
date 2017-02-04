@@ -518,6 +518,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ScoreText: {fileID: 1522718938}
   Score: 0
+  MaxDeadBodies: 60
 --- !u!1 &628968525
 GameObject:
   m_ObjectHideFlags: 0

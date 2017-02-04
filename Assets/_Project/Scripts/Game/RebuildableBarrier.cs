@@ -75,8 +75,6 @@ public class RebuildableBarrier : MonoBehaviour
 
     private void OnDamaged(int damage, Vector3 position, Vector3 velocity)
     {
-		Debug.Log("Barrier damaged");
-
 		if(DamagedEffectPrefab != null)
 			Instantiate(DamagedEffectPrefab, transform.position, transform.rotation);
     }

@@ -54,7 +54,7 @@ public class ZombieController : MonoBehaviour
 
 	private void OnDeath(Vector3 position, Vector3 velocity)
 	{
-		GameState.Instance.OnZombieKilled();
+		GameState.Instance.OnZombieKilled(gameObject);
 		Instantiate(BloodPrefab, position, Quaternion.LookRotation(velocity, Vector3.up));
 		// Enable ragdoll, disable this controller and destroy object after some time
 		GetComponent<RagdollController>().EnableRagdoll(position, velocity);
