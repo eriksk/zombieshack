@@ -58,7 +58,8 @@ public class PlayerController : MonoBehaviour
 		MoveAndAim(movement, aim);
 
 
-		if(Input.GetAxis("RightTrigger") > 0.3f && _currentReload >= ReloadTime)
+		if((Input.GetAxis("RightTrigger") > 0.3f || Input.GetButton("Fire")) && 
+			_currentReload >= ReloadTime)
 		{
 			Fire();
 			_audioSource.Play();
